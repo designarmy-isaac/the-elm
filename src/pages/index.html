@@ -1,0 +1,60 @@
+---
+layout: default
+class: index
+meta-title: The Elm | New Apartments Arriving in Bethesda Fall 2020 
+meta-keywords: apartment, rent, Bethesda, DC, Maryland, studio, one-bedroom
+meta-description: TODO
+og-image: TODO
+og-url: TODO
+site-name: The Elm
+---
+
+<div class="text-center">
+  <h1>
+    let<br />living<br />take<br />shape
+  </h1>
+  <h2>New<br />apartments<br />arriving<br />fall 2020</h2>
+  <div id="form-anchor">
+    <div id="form-container" class="closed">
+      <div id="form-group">
+        <div id="form-control-close-container">
+          <div id="form-control-close" tabindex="1"><span id="form-control-close-icon"></span></div>
+        </div>
+        <span id="form-control-open" tabindex="0">Sign Up for Updates</span>
+        <form data-abide novalidate>
+          <div data-abide-error class="alert callout" style="display: none;">
+            <p><i class="fi-alert"></i> There are some errors in your form.</p>
+          </div>
+          <label class="input-group">
+            <span class="input-group-label">First name:</span>
+            <input class="form-input" id="inputFname" type="text" placeholder="" aria-errormessage="errorFname" required pattern="text">
+          </label>
+          <p class="form-error" id="errorFname">Enter your first name.</p>
+          <label class="input-group">
+            <span class="input-group-label">Last name:</span>
+            <input class="form-input" id="inputLname" type="text" placeholder="" aria-errormessage="errorLname" required pattern="text">
+          </label>
+          <p class="form-error" id="errorLname">Enter your last name.</p>
+          <label class="input-group">
+            <span class="input-group-label">Email address:</span>
+            <input class="form-input" id="inputEmail" type="email" placeholder="" aria-errormessage="errorEmail" required pattern="email">
+          </label>
+          <p class="form-error" id="errorEmail">Enter your email.</p>
+          <button id="form-input-submit" class="button clear small text-uppercase" type="submit" value="Submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{#each renderings}}
+  <img src="{{root}}assets/img/{{ this.file }}" alt="{{ this.alt }}" class="section">
+
+  {{#ifequal this.alt 'Exterior' }}
+    <div class="body-text section text-center">
+      <p>Welcome to The Elm, Bethesda’s premier residences. Enjoy stunning views of Washington and beyond on the glass Skybridge that connects two 28-story luxury apartment towers. Entertain poolside or atop the lushly landscaped roof deck with space for grilling, dining and relaxing. Energize in the light-filled state-of-the-art fitness center, featuring the latest cardio equipment, free weights and individual workout studios.</p>
+      <p>Avail yourself of unparalleled service in Bethesda’s most iconic building and address to call home.</p>
+      <p>Let living take shape at The Elm.</p>
+    </div>
+  {{/ifequal}}
+{{/each}}

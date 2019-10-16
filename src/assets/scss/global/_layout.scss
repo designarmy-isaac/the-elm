@@ -1,0 +1,19 @@
+.section {
+  width: 100%;
+  max-width: rem-calc(1680);
+  padding: rem-calc(50 0);
+  margin: 0 auto;
+  display: block;
+  @include breakpoint(medium) {
+    padding: rem-calc(60 32)
+  }
+  @include breakpoint(medium) {
+    padding: rem-calc(60 32)
+  }
+  @include breakpoint(large) {
+    padding: rem-calc(80 64)
+  }
+  @include breakpoint(xxlarge) {
+    padding: rem-calc(120)
+  }
+}

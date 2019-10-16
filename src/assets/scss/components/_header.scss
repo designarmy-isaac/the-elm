@@ -1,0 +1,12 @@
+.logo {
+  max-width: rem-calc(86);
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  @include breakpoint(medium) {
+    max-width: rem-calc(100);
+    margin-top: 2rem;
+  }
+  @include breakpoint(xlarge) {
+    max-width: rem-calc(120);
+  }
+}
