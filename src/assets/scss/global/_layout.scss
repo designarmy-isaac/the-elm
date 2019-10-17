@@ -52,7 +52,9 @@ $parallax-ios         : true !default;
 }
 
 .block {
-  @include parallax(0);
+  @include breakpoint(medium) {
+    @include parallax(0);
+  }
   display: block;
   position: relative;
   width: 100%;
@@ -80,7 +82,9 @@ $parallax-ios         : true !default;
 }
 
 .shape-anchor {
-  @include parallax(0.1);
+  @include breakpoint(medium) {
+    @include parallax(0.1);
+  }
   position: relative;
   overflow: visible;
   width: 100%;
