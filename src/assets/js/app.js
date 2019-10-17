@@ -72,9 +72,15 @@ function f( jQuery ) {
 //        $(this).attr('width',newWidth);
 //        $(this).attr('height',newHeight);
     });
-  } 
+  }
+  
   resizeImages();
   $(window).resize(resizeImages);
+  
+  window.fadeIn = function(obj) {
+      $(obj).fadeIn(1000);
+  }
+
 }
 
 $(document).ready(f);
