@@ -1,0 +1,16 @@
+.shape-container {
+  z-index: 500;
+}
+
+.shape {
+  z-index: 600;
+}
+
+.block {
+  z-index: 1000;
+}
+
+.section {
+  position: relative;
+  z-index: -100;
+}

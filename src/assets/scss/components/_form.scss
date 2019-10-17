@@ -20,6 +20,7 @@
     height: 3rem;
     overflow: hidden;
     #form-group {
+      width: rem-calc(220);
       margin-top: -4rem;
       background: $white;
     }
@@ -39,6 +40,7 @@
   max-width: rem-calc(460);
   background: $light-gray;
   transition: all 1s;
+  width: 100%;
 }
 
 #form-control-open {
@@ -121,7 +123,10 @@ form {
   }
 }
 
-#form-input-submit {
+.button.clear {
   border-bottom: 1px solid $black;
+}
+
+#form-input-submit {
   margin-top: 4rem;
 }

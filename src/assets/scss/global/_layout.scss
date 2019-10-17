@@ -1,3 +1,64 @@
+// Magic parallax mixins
+
+$parallax-perspective : 1 !default;
+$parallax-element     : "body" !default;
+$parallax-ios         : true !default;
+
+@mixin parallax-init(
+  $perspective  : $parallax-perspective,
+  $element      : $parallax-element,
+  $parallax-ios : $parallax-ios
+  ) {
+  @if $element == "body" {
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+  }
+  #{$element} {
+    overflow: auto;
+    perspective: $perspective * 1px;
+    transform-style: preserve-3d;
+    // Allows for smooth scrolling but disables parallax effects.
+    @if $parallax-ios == false {
+      -webkit-overflow-scrolling: touch;
+    }
+    // Preserve 3D
+    &, * {
+      transform-style: preserve-3d;
+    }
+  }
+}
+
+@mixin parallax(
+  $distance    : 0,
+  $perspective : $parallax-perspective
+  ) {
+  transform:
+    translateZ($distance * $perspective * 1px)
+    scale(abs($distance - 1))
+  ;
+}
+
+// End of magic parallax mixins
+
+@include parallax-init;
+
+.mt3 {
+  margin-top: 3rem;
+}
+
+.block {
+  @include parallax(0);
+  display: block;
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
 .section {
   width: 100%;
   max-width: rem-calc(1680);
@@ -15,5 +76,140 @@
   }
   @include breakpoint(xxlarge) {
     padding: rem-calc(120)
+  }
+}
+
+.shape-anchor {
+  @include parallax(0.1);
+  position: relative;
+  overflow: visible;
+  width: 100%;
+  max-width: 100%;
+  pointer-events: none;
+//  background: rgba(0,200,50,0.05);
+//  border: 1px solid green;
+}
+
+.shape-container {
+  position: absolute;
+  height: auto;
+  overflow: visible;
+  width: 100%;
+//  background: rgba(255,0,0,0.05);
+//  border: 1px solid red;
+}
+
+.shape {
+  position: relative;
+}
+
+#shape1 { // corduroy
+  width: rem-calc(168);
+  @include breakpoint(medium) {
+    width: rem-calc(240);
+  }
+  @include breakpoint(large) {
+    width: rem-calc(360);
+  }
+  @include breakpoint(xlarge) {
+    width: rem-calc(460);
+  }
+}
+
+#shape2 { // wood
+  float: right;
+  top: rem-calc(-120);
+  width: rem-calc(60);
+  @include breakpoint(medium) {
+    width: rem-calc(90);
+  }
+  @include breakpoint(large) {
+    width: rem-calc(240);
+  }
+  @include breakpoint(xlarge) {
+    width: rem-calc(280);
+  }
+}
+
+#shape3 { // twig
+  float: left;
+  top: rem-calc(100);
+  left: 5%;
+  width: rem-calc(48);
+  @include breakpoint(medium) {
+    width: rem-calc(60);
+  }
+  @include breakpoint(large) {
+    width: rem-calc(90);
+  }
+  @include breakpoint(xlarge) {
+    width: rem-calc(110);
+  }
+}
+
+#shape4 { // pattern
+  float: right;
+  width: rem-calc(88);
+  @include breakpoint(medium) {
+    width: rem-calc(130);
+  }
+  @include breakpoint(large) {
+    width: rem-calc(300);
+  }
+  @include breakpoint(xlarge) {
+    width: rem-calc(350);
+  }
+}
+
+#shape5 { // leather
+  width: rem-calc(102);
+  @include breakpoint(medium) {
+    width: rem-calc(140);
+  }
+  @include breakpoint(large) {
+    width: rem-calc(240);
+  }
+  @include breakpoint(xlarge) {
+    width: rem-calc(290);
+  }
+}
+
+#shape6 { //concrete
+  float: right;
+  width: rem-calc(88);
+  @include breakpoint(medium) {
+    width: rem-calc(120);
+  }
+  @include breakpoint(large) {
+    width: rem-calc(220);
+    right: rem-calc(32);
+  }
+  @include breakpoint(xlarge) {
+    width: rem-calc(320);
+  }
+}
+
+#shape-anchor7 {
+  top: rem-calc(-130);
+  @include breakpoint(medium) {
+    top: rem-calc(-200);
+  }
+  @include breakpoint(large) {
+    top: rem-calc(-250);
+  }
+  @include breakpoint(xlarge) {
+  }
+}
+
+#shape7 {
+  width: rem-calc(168);
+  @include breakpoint(medium) {
+    width: rem-calc(200);
+  }
+  @include breakpoint(large) {
+    width: rem-calc(360);
+  }
+  @include breakpoint(xlarge) {
+    width: rem-calc(460);
   }
 }

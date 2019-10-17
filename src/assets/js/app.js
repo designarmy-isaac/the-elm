@@ -16,7 +16,8 @@ function f( jQuery ) {
       $close      = $('#form-control-close'),
       $open       = $('#form-control-open'),
       $container  = $('#form-container'),
-      $fname      = $('#inputFname');
+      $fname      = $('#inputFname'),
+      $shape     = $('.shape');
   
   
   $body.removeClass('no-js');
@@ -54,6 +55,26 @@ function f( jQuery ) {
     }
   });
   
+  function resizeImages() {
+    var width = window.innerWidth || document.documentElement.clientWidth;
+    $shape.each(function() {
+        var oldSrc = $(this).attr('src');
+        if (width >= 1024) {
+          var newSrc = oldSrc.replace('-sm','-lg');
+        } else {
+          var newSrc = oldSrc.replace('-lg','-sm');
+        }
+//          else if ( width >= 480 ) {
+//            var newSrc = oldSrc.replace('_normal.','_big.');
+//            var newWidth = 50;  var newHeight = 50;
+//        }
+        $(this).attr('src',newSrc);
+//        $(this).attr('width',newWidth);
+//        $(this).attr('height',newHeight);
+    });
+  } 
+  resizeImages();
+  $(window).resize(resizeImages);
 }
 
 $(document).ready(f);
