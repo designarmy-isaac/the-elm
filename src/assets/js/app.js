@@ -28,7 +28,7 @@ window.fadeIn = function(obj) {
   if (width >= 1024) {
     swap();
   }
-  $(obj).fadeIn(500);
+  $(obj).fadeIn(1000);
 };
 
 $(document).foundation();
