@@ -83,7 +83,7 @@ $parallax-ios         : true !default;
 
 .shape-anchor {
   @include breakpoint(medium) {
-    @include parallax(0.1);
+    @include parallax(0.15);
   }
   position: relative;
   overflow: visible;
