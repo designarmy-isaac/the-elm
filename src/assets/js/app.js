@@ -7,31 +7,29 @@ require('foundation-sites');
 // the line below
 //import './lib/foundation-explicit-pieces';
 
- var $shape     = $('.shape');
-  function resizeImages() {
-    var width = window.innerWidth || document.documentElement.clientWidth;
-    $shape.each(function() {
-        var oldSrc = $(this).attr('src');
-        if (width >= 1024) {
-          var newSrc = oldSrc.replace('-sm','-lg');
-        } else {
-          var newSrc = oldSrc.replace('-lg','-sm');
-        }
-//          else if ( width >= 480 ) {
-//            var newSrc = oldSrc.replace('_normal.','_big.');
-//            var newWidth = 50;  var newHeight = 50;
-//        }
-        $(this).attr('src',newSrc);
-//        $(this).attr('width',newWidth);
-//        $(this).attr('height',newHeight);
-    });
+function swap() {
+  $('.shape').each(function() {
+    var oldSrc = $(this).attr('src');
+    var newSrc = oldSrc.replace('-sm','-lg');
+    $(this).attr('src', newSrc);
+  });
+}
+
+function swapBack() {
+  $('.shape').each(function() {
+    var oldSrc = $(this).attr('src');
+    var newSrc = oldSrc.replace('-lg','-sm');
+    $(this).attr('src', newSrc);
+  });
+}
+
+window.fadeIn = function(obj) {
+  var width = window.innerWidth || document.documentElement.clientWidth;
+  if (width >= 1024) {
+    swap();
   }
-  
-  resizeImages();
-  
-  window.fadeIn = function(obj) {
-      $(obj).fadeIn(1000);
-  }
+  $(obj).fadeIn(500);
+};
 
 $(document).foundation();
 
@@ -42,7 +40,6 @@ function f( jQuery ) {
       $open       = $('#form-control-open'),
       $container  = $('#form-container'),
       $fname      = $('#inputFname');
-  
   
   $body.removeClass('no-js');
   
@@ -56,7 +53,7 @@ function f( jQuery ) {
       e.stopPropagation();
     }
   });
-  
+
   $fname.focus(function(){
     $container.removeClass('closed');
   });
@@ -78,8 +75,16 @@ function f( jQuery ) {
       $open.focus();
     }
   });
-  resizeImages();
-  $(window).resize(resizeImages);
+  
+  $(window).resize(function() {
+    var width = window.innerWidth || document.documentElement.clientWidth;
+    if (width >= 1024) {
+      swap();
+    } else {
+      swapBack();
+    }
+  });
+  
 }
 
 $(document).ready(f);
