@@ -7,27 +7,7 @@ window.$ = $;
 // the line below
 import './lib/foundation-explicit-pieces';
 
-function swap() {
-  $('.shape').each(function() {
-    var oldSrc = $(this).attr('src');
-    var newSrc = oldSrc.replace('-sm','-lg');
-    $(this).attr('src', newSrc);
-  });
-}
-
-function swapBack() {
-  $('.shape').each(function() {
-    var oldSrc = $(this).attr('src');
-    var newSrc = oldSrc.replace('-lg','-sm');
-    $(this).attr('src', newSrc);
-  });
-}
-
 window.fadeIn = function(obj) {
-  var width = window.innerWidth || document.documentElement.clientWidth;
-  if (width >= 1024) {
-    swap();
-  }
   $(obj).fadeIn(1000);
 };
 
@@ -42,6 +22,48 @@ function f( jQuery ) {
       $fname      = $('#inputFname');
   
   $body.removeClass('no-js');
+  
+/* ========================
+   ======================== Swap Images
+   ===================== */
+  
+  var width = window.innerWidth || document.documentElement.clientWidth;
+  if (width >= 1024) {
+    swap();
+  }
+  
+  $(window).resize(function() {
+    var width = window.innerWidth || document.documentElement.clientWidth;
+    if (width >= 1024) {
+      swap();
+    } else {
+      swapBack();
+    }
+  });
+  
+  function swap() {
+    $('.shape').each(function() {
+      var oldSrc = $(this).attr('src');
+      var newSrc = oldSrc.replace('-sm','-lg');
+      if (newSrc !== oldSrc) {
+        $(this).attr('src', newSrc);
+      }
+    });
+  }
+
+  function swapBack() {
+    $('.shape').each(function() {
+      var oldSrc = $(this).attr('src');
+      var newSrc = oldSrc.replace('-lg','-sm');
+      if (newSrc !== oldSrc) {
+        $(this).attr('src', newSrc);
+      }
+    });
+  }
+  
+/* ========================
+   ======================== Handle Form Controls
+   ===================== */
   
   $open.click(function(){
     $container.removeClass('closed');
@@ -75,16 +97,6 @@ function f( jQuery ) {
       $open.focus();
     }
   });
-  
-  $(window).resize(function() {
-    var width = window.innerWidth || document.documentElement.clientWidth;
-    if (width >= 1024) {
-      swap();
-    } else {
-      swapBack();
-    }
-  });
-  
 }
 
 $(document).ready(f);
