@@ -34,13 +34,13 @@
     
       <div class="shape-anchor">
         <div class="shape-container">
-          <img id="shape1" class="shape" alt="brand shape" role="presentation" src="assets/img/the_elm-brand_shape-1-corduroy-sm@2x.png">
+          <img onload="fadeIn(this)" id="shape1" class="shape" alt="brand shape" role="presentation" src="assets/img/the_elm-brand_shape-1-corduroy-sm@2x.png">
         </div>
       </div>
       <header class="grid-container">
         <div class="grid-x grid-padding-x">
           <div class="cell small-12">
-            <a href="/"><img class="logo float-center" src="assets/img/the_elm-logo.png" alt="The Elm"></a>
+            <a href="/"><img onload="fadeIn(this)" class="logo float-center" src="assets/img/the_elm-logo.png" alt="The Elm"></a>
           </div>
         </div>
       </header>    
@@ -79,6 +79,11 @@
     
       </footer>
     </div>    
-
+    <script>
+    // this function must be defined in the global scope
+    window.fadeIn = function(obj) {
+        $(obj).fadeIn(1000);
+    }
+    </script>
 </body>
 </html>
