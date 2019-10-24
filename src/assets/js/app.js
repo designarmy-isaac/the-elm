@@ -19,7 +19,7 @@ function f( jQuery ) {
       $close      = $('#form-control-close'),
       $open       = $('#form-control-open'),
       $container  = $('#form-container'),
-      $fname      = $('#inputFname');
+      $fname      = $('#mce-FNAME');
   
   $body.removeClass('no-js');
   
@@ -66,6 +66,9 @@ function f( jQuery ) {
    ===================== */
   
   $open.click(function(){
+    if ($open.html() == 'Thank You!') {
+      $open.html('Sign Up for Updates');
+    }
     $container.removeClass('closed');
   }).keydown(function(e){
     if(e.which == '13' ||
@@ -97,6 +100,18 @@ function f( jQuery ) {
       $open.focus();
     }
   });
+  
+  /* ===================
+     =================== Show Thank You on successful form submission
+     ================ */
+  function confirmation() {
+    if(window.location.href.indexOf('#thank-you') != -1) {
+      $open.html('Thank You!');
+      }
+    window.location.hash=""; 
+  }
+  confirmation();
+
 }
 
 $(document).ready(f);
