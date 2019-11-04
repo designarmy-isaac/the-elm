@@ -1,6 +1,5 @@
 *:focus {
   outline: none;
-  opacity: .6;
 }
 
 #form-anchor {
@@ -114,19 +113,27 @@ form {
   margin: 0;
 }
 
-.input-group,
-#mc-embedded-subscribe {
-  transition: all .25s ease-in-out;
-  &:hover,
+.form-input {
+  opacity: 0.8;
   &:focus {
-    opacity: .6;
+    opacity: 1;
   }
 }
 
-.button.clear {
+.input-group,
+#mc-embedded-subscribe {
+  transition: all .25s ease-in-out;
+}
+
+.button.clear,
+.button.clear:hover {
   border-bottom: 1px solid $black;
 }
 
+
 #mc-embedded-subscribe {
   margin-top: 4rem;
+  &.thanks {
+    border-bottom-color: $light-gray;
+  }
 }

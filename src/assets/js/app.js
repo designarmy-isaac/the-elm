@@ -19,7 +19,9 @@ function f( jQuery ) {
       $close      = $('#form-control-close'),
       $open       = $('#form-control-open'),
       $container  = $('#form-container'),
-      $fname      = $('#mce-FNAME');
+      $form       = $("#mc-embedded-subscribe-form"),
+      $fname      = $('#mce-FNAME'),
+      $submit     = $('#mc-embedded-subscribe');
   
   $body.removeClass('no-js');
   
@@ -66,7 +68,7 @@ function f( jQuery ) {
    ===================== */
   
   $open.click(function(){
-    if ($open.html() == 'Thank You!') {
+    if ($open.html() !== 'Sign Up for Updates') {
       $open.html('Sign Up for Updates');
     }
     $container.removeClass('closed');
@@ -101,16 +103,40 @@ function f( jQuery ) {
     }
   });
   
-  /* ===================
-     =================== Show Thank You on successful form submission
-     ================ */
-  function confirmation() {
-    if(window.location.href.indexOf('#thank-you') != -1) {
-      $open.html('Thank You!');
-      }
-    window.location.hash=""; 
-  }
-  confirmation();
+    
+/* ========================
+   ======================== Form Validation and Submission
+   ===================== */
+  
+  //    $('#mc-embedded-subscribe-form').validator();
+  
+  $form.bind("forminvalid.zf.abide", function(e,target) {
+    window.alert("form is invalid");
+  });
+  
+  $form.submit(function(e) {
+    e.preventDefault();
+    var url = "signup.php";
+
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: $(this).serialize() ,
+        success: function (data)
+        {
+          var messageText = data.message;
+          if (data.type === 'success') {
+            $form.trigger('reset');                         // reset form
+            $submit.val(messageText).addClass('thanks');    // set submit button to success or error message
+          }
+          $('.thanks').click(function(e) {
+            e.preventDefault();
+            $('.thanks').removeClass('thanks').val('Submit').off();
+          });
+        }
+    });
+    return false;
+  });
 
 }
 

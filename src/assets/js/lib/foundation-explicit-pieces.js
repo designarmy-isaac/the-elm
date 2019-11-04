@@ -38,10 +38,10 @@ Foundation.addToJquery($);
 // Add Foundation Utils to Foundation global namespace for backwards
 // compatibility.
 Foundation.rtl = CoreUtils.rtl;
-//Foundation.GetYoDigits = CoreUtils.GetYoDigits;
-//Foundation.transitionend = CoreUtils.transitionend;
-//Foundation.RegExpEscape = CoreUtils.RegExpEscape;
-//Foundation.onLoad = CoreUtils.onLoad;
+Foundation.GetYoDigits = CoreUtils.GetYoDigits;
+Foundation.transitionend = CoreUtils.transitionend;
+Foundation.RegExpEscape = CoreUtils.RegExpEscape;
+Foundation.onLoad = CoreUtils.onLoad;
 
 //Foundation.Box = Box;
 //Foundation.onImagesLoaded = onImagesLoaded;
