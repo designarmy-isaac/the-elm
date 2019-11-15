@@ -3,12 +3,12 @@
 $parallax-perspective : 1 !default;
 $parallax-element     : "body" !default;
 //$parallax-ios         : true !default;
-$parallax-ios         : false !default;
+//$parallax-ios         : false !default;
 
 @mixin parallax-init(
   $perspective  : $parallax-perspective,
   $element      : $parallax-element,
-  $parallax-ios : $parallax-ios
+//  $parallax-ios : $parallax-ios
   ) {
   @if $element == "body" {
     html, body {
@@ -25,7 +25,7 @@ $parallax-ios         : false !default;
     transform-style: preserve-3d;
     // Allows for smooth scrolling but disables parallax effects.
 //    @if $parallax-ios == false {
-//      -webkit-overflow-scrolling: touch;
+    -webkit-overflow-scrolling: auto;
 //    }
     // Preserve 3D
     &, * {
