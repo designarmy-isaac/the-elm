@@ -3,9 +3,9 @@ layout: default
 class: index
 meta-title: The Elm | New Apartments Arriving in Bethesda Fall 2020 
 meta-keywords: apartment, rent, Bethesda, DC, Maryland, studio, one-bedroom
-meta-description: TODO
-og-image: TODO
-og-url: TODO
+meta-description: Welcome to The Elm, Bethesda’s premier residences. Experience unparalleled service in Bethesda’s most iconic building.
+og-image: "{{root}}assets/img/the_elm-og_image.jpg"
+og-url: livetheelm.com
 site-name: The Elm
 ---
   <div class="block">
@@ -33,23 +33,22 @@ site-name: The Elm
             <div id="form-control-close" tabindex="1"><span id="form-control-close-icon"></span></div>
           </div>
           <span id="form-control-open" tabindex="0">Sign Up for Updates</span>
-          <form action="https://gmail.us20.list-manage.com/subscribe/post?u=f4c511c4996edb3cb7da2e32b&amp;id=0bbcece4a2" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+          <form action="signup.php" method="post" role="form" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" data-abide="ajax" novalidate>
             <div id="mc_embed_signup_scroll">
               <label for="mce-FNAME" class="mc-field-group input-group">
                 <span class="input-group-label">First name:</span>
-                <input type="text" value="" name="FNAME" class="form-input" id="mce-FNAME">
+                <input type="text" value="" name="FNAME" class="form-input" id="mce-FNAME" required pattern="text">
               </label>
               <label for="mce-LNAME" class="mc-field-group input-group">
                 <span class="input-group-label">Last name:</span>
-                <input type="text" value="" name="LNAME" class="form-input" id="mce-LNAME">
+                <input type="text" value="" name="LNAME" class="form-input" id="mce-LNAME" required pattern="text">
               </label>
               <label for="mce-EMAIL" class="mc-field-group input-group ">
                 <span class="input-group-label">Email address:</span>
-                <input type="email" value="" name="EMAIL" class="form-input required email" id="mce-EMAIL">
+                <input type="email" value="" name="EMAIL" class="form-input required email" id="mce-EMAIL" required pattern="email">
               </label>
               <div id="mce-responses" class="clear">
-                <div class="response" id="mce-error-response" style="display:none"></div>
-                <div class="response" id="mce-success-response" style="display:none"></div>
+                <div data-abide-error class="alert callout" style="display: none;">Double check that you've filled the entire form and that your email address is valid.</div>
               </div>   
               <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_f4c511c4996edb3cb7da2e32b_0bbcece4a2" tabindex="-1" value=""></div>
               <input type="submit" value="Submit" name="subscribe" id="mc-embedded-subscribe" class="button clear small text-uppercase">

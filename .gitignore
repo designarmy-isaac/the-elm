@@ -6,4 +6,4 @@ dist
 *.swp
 .cache
 .idea
-.php
+*.php
