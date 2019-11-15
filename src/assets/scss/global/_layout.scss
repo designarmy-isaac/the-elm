@@ -24,9 +24,9 @@ $parallax-ios         : false !default;
     perspective: $perspective * 1px;
     transform-style: preserve-3d;
     // Allows for smooth scrolling but disables parallax effects.
-    @if $parallax-ios == false {
-      -webkit-overflow-scrolling: touch;
-    }
+//    @if $parallax-ios == false {
+//      -webkit-overflow-scrolling: touch;
+//    }
     // Preserve 3D
     &, * {
       transform-style: preserve-3d;
