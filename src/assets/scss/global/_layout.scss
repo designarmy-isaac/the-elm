@@ -23,9 +23,9 @@ $parallax-ios         : true !default;
     perspective: $perspective * 1px;
     transform-style: preserve-3d;
     // Allows for smooth scrolling but disables parallax effects.
-//    @if $parallax-ios == false {
-//      -webkit-overflow-scrolling: touch;
-//    }
+    @if $parallax-ios == false {
+      -webkit-overflow-scrolling: touch;
+    }
     // Preserve 3D
     &, * {
       transform-style: preserve-3d;
@@ -52,9 +52,9 @@ $parallax-ios         : true !default;
 }
 
 .block {
-//  @include breakpoint(medium) {
+  @include breakpoint(medium) {
     @include parallax(0);
-//  }
+  }
   display: block;
   position: relative;
   width: 100%;
@@ -82,9 +82,9 @@ $parallax-ios         : true !default;
 }
 
 .shape-anchor {
-//  @include breakpoint(medium) {
+  @include breakpoint(medium) {
     @include parallax(0.15);
-//  }
+  }
   position: relative;
   overflow: visible;
   width: 100%;
