@@ -2,7 +2,8 @@
 
 $parallax-perspective : 1 !default;
 $parallax-element     : "body" !default;
-$parallax-ios         : true !default;
+//$parallax-ios         : true !default;
+$parallax-ios         : false !default;
 
 @mixin parallax-init(
   $perspective  : $parallax-perspective,
@@ -52,9 +53,9 @@ $parallax-ios         : true !default;
 }
 
 .block {
-  @include breakpoint(medium) {
-    @include parallax(0);
-  }
+  @include parallax(0);
+//  @include breakpoint(medium) {
+//  }
   display: block;
   position: relative;
   width: 100%;
@@ -82,9 +83,9 @@ $parallax-ios         : true !default;
 }
 
 .shape-anchor {
-  @include breakpoint(medium) {
-    @include parallax(0.15);
-  }
+  @include parallax(0.15);
+//  @include breakpoint(medium) {
+//  }
   position: relative;
   overflow: visible;
   width: 100%;
