@@ -2,13 +2,13 @@
 
 $parallax-perspective : 1 !default;
 $parallax-element     : "body" !default;
-//$parallax-ios         : true !default;
+$parallax-ios         : true !default;
 //$parallax-ios         : false !default;
 
 @mixin parallax-init(
   $perspective  : $parallax-perspective,
   $element      : $parallax-element,
-//  $parallax-ios : $parallax-ios
+  $parallax-ios : $parallax-ios
   ) {
   @if $element == "body" {
     html, body {
@@ -24,9 +24,9 @@ $parallax-element     : "body" !default;
     perspective: $perspective * 1px;
     transform-style: preserve-3d;
     // Allows for smooth scrolling but disables parallax effects.
-//    @if $parallax-ios == false {
+    @if $parallax-ios == false {
     -webkit-overflow-scrolling: auto;
-//    }
+    }
     // Preserve 3D
     &, * {
       transform-style: preserve-3d;
@@ -53,9 +53,9 @@ $parallax-element     : "body" !default;
 }
 
 .block {
-  @include parallax(0);
-//  @include breakpoint(medium) {
-//  }
+  @include breakpoint(medium) {
+    @include parallax(0);
+  }
   display: block;
   position: relative;
   width: 100%;
@@ -83,9 +83,9 @@ $parallax-element     : "body" !default;
 }
 
 .shape-anchor {
+  @include breakpoint(medium) {
   @include parallax(0.15);
-//  @include breakpoint(medium) {
-//  }
+  }
   position: relative;
   overflow: visible;
   width: 100%;
@@ -109,7 +109,7 @@ $parallax-element     : "body" !default;
 }
 
 #shape1 { // corduroy
-  width: rem-calc(168);
+  width: rem-calc(144);
   @include breakpoint(medium) {
     width: rem-calc(240);
   }
@@ -124,7 +124,7 @@ $parallax-element     : "body" !default;
 #shape2 { // wood
   float: right;
   top: rem-calc(-120);
-  width: rem-calc(60);
+  width: rem-calc(48);
   @include breakpoint(medium) {
     width: rem-calc(90);
   }
@@ -140,7 +140,7 @@ $parallax-element     : "body" !default;
   float: left;
   top: rem-calc(100);
   left: 5%;
-  width: rem-calc(48);
+  width: rem-calc(36);
   @include breakpoint(medium) {
     width: rem-calc(60);
   }
@@ -154,7 +154,7 @@ $parallax-element     : "body" !default;
 
 #shape4 { // pattern
   float: right;
-  width: rem-calc(88);
+  width: rem-calc(64);
   @include breakpoint(medium) {
     width: rem-calc(130);
   }
@@ -167,7 +167,7 @@ $parallax-element     : "body" !default;
 }
 
 #shape5 { // leather
-  width: rem-calc(102);
+  width: rem-calc(72);
   @include breakpoint(medium) {
     width: rem-calc(140);
   }
@@ -181,7 +181,7 @@ $parallax-element     : "body" !default;
 
 #shape6 { //concrete
   float: right;
-  width: rem-calc(88);
+  width: rem-calc(64);
   @include breakpoint(medium) {
     width: rem-calc(120);
   }
@@ -195,7 +195,7 @@ $parallax-element     : "body" !default;
 }
 
 #shape-anchor7 {
-  top: rem-calc(-130);
+  top: rem-calc(-70);
   @include breakpoint(medium) {
     top: rem-calc(-200);
   }
@@ -207,7 +207,7 @@ $parallax-element     : "body" !default;
 }
 
 #shape7 {
-  width: rem-calc(168);
+  width: rem-calc(100);
   @include breakpoint(medium) {
     width: rem-calc(200);
   }
